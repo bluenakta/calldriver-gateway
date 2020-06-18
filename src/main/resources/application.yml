@@ -23,7 +23,7 @@ spring:
         - id: board
           uri: http://localhost:8084
           predicates:
-            - Path= 
+            - Path=/boards/**
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -58,7 +58,7 @@ spring:
         - id: board
           uri: http://board:8080
           predicates:
-            - Path= 
+            - Path= /boards/**
       globalcors:
         corsConfigurations:
           '[/**]':

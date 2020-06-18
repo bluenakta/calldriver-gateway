@@ -1,0 +1,74 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+      routes:
+        - id: calling
+          uri: http://localhost:8081
+          predicates:
+            - Path=/calls/** 
+        - id: payment
+          uri: http://localhost:8082
+          predicates:
+            - Path=/pays/** 
+        - id: driverMgr
+          uri: http://localhost:8083
+          predicates:
+            - Path=/drivers/** 
+        - id: board
+          uri: http://localhost:8084
+          predicates:
+            - Path= 
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: calling
+          uri: http://calling:8080
+          predicates:
+            - Path=/calls/** 
+        - id: payment
+          uri: http://payment:8080
+          predicates:
+            - Path=/pays/** 
+        - id: driverMgr
+          uri: http://driverMgr:8080
+          predicates:
+            - Path=/drivers/** 
+        - id: board
+          uri: http://board:8080
+          predicates:
+            - Path= 
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080

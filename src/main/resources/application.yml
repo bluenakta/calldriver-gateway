@@ -44,19 +44,19 @@ spring:
     gateway:
       routes:
         - id: calling
-          uri: http://calling:8080
+          uri: http://admin13-call:8080
           predicates:
             - Path=/calls/** 
         - id: payment
-          uri: http://payment:8080
+          uri: http://admin13-payment:8080
           predicates:
             - Path=/pays/** 
         - id: drivermgr
-          uri: http://drivermgr:9090
+          uri: http://admin13-driver:8080
           predicates:
             - Path=/drivers/** 
         - id: board
-          uri: http://board:8080
+          uri: http://admin13-board:8080
           predicates:
             - Path= /boards/**
       globalcors:

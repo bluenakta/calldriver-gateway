@@ -51,8 +51,8 @@ spring:
           uri: http://payment:8080
           predicates:
             - Path=/pays/** 
-        - id: driverMgr
-          uri: http://driverMgr:8080
+        - id: drivermgr
+          uri: http://drivermgr:8080
           predicates:
             - Path=/drivers/** 
         - id: board

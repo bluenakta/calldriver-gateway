@@ -52,7 +52,7 @@ spring:
           predicates:
             - Path=/pays/** 
         - id: drivermgr
-          uri: http://drivermgr:8080
+          uri: http://drivermgr:9090
           predicates:
             - Path=/drivers/** 
         - id: board

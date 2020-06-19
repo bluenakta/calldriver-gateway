@@ -1,3 +1,43 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+      routes:
+        - id: admin13-call
+          uri: http://admin13-call:8080
+          predicates:
+            - Path=/calls/**
+        - id: admin13-payment
+          uri: http://admin13-payment:8080
+          predicates:
+            - Path=/pays/**
+        - id: admin13-driver
+          uri: http://admin13-driver:8080
+          predicates:
+            - Path=/drivers/**
+        - id: admin13-board
+          uri: http://admin13-board:8080
+          predicates:
+            - Path= /boards/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
 spring:
   profiles: docker
   cloud:
